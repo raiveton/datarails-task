@@ -8,7 +8,7 @@ resource "aws_eip" "nat" {
 
 resource "aws_nat_gateway" "k8s-nat" {
   allocation_id = aws_eip.nat.id
-  subnet_id     = aws_subnet.public-eu-north-1a.id
+  subnet_id     = aws_subnet.public-us-east-1a.id
 
   tags = {
     Name = "k8s-nat"

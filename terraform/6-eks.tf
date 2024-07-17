@@ -24,7 +24,7 @@ resource "aws_iam_role" "demo" {
 POLICY
 }
 
-# eks policy eu-north-1b
+# eks policy us-east-1b
 
 resource "aws_iam_role_policy_attachment" "demo-AmazonEKSClusterPolicy" {
   role       = aws_iam_role.demo.name
@@ -39,10 +39,10 @@ resource "aws_eks_cluster" "demo" {
 
   vpc_config {
     subnet_ids = [
-      aws_subnet.private-eu-north-1a.id,
-      aws_subnet.private-eu-north-1b.id,
-      aws_subnet.public-eu-north-1a.id,
-      aws_subnet.public-eu-north-1b.id
+      aws_subnet.private-us-east-1a.id,
+      aws_subnet.private-us-east-1b.id,
+      aws_subnet.public-us-east-1a.id,
+      aws_subnet.public-us-east-1b.id
     ]
   }
 

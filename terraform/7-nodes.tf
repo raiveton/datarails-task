@@ -15,7 +15,7 @@ resource "aws_iam_role" "nodes" {
   })
 }
 
-# IAM policy eu-north-1b to nodegroup
+# IAM policy us-east-1b to nodegroup
 
 resource "aws_iam_role_policy_attachment" "nodes-AmazonEKSWorkerNodePolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
@@ -41,8 +41,8 @@ resource "aws_eks_node_group" "private-nodes" {
   node_role_arn   = aws_iam_role.nodes.arn
 
   subnet_ids = [
-    aws_subnet.private-eu-north-1a.id,
-    aws_subnet.private-eu-north-1b.id
+    aws_subnet.private-us-east-1a.id,
+    aws_subnet.private-us-east-1b.id
   ]
 
   capacity_type  = "ON_DEMAND"
