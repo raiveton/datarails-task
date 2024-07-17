@@ -1,5 +1,6 @@
 # datarails-task
 
+Part 1: Working with Docker
 
 docker build -t datarails-simple-app .
 
