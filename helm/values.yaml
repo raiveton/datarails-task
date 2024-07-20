@@ -1,0 +1,12 @@
+replicaCount: 1
+
+image:
+  repository: raiveton/datarails-simple-app
+  tag: test
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+
+resources: {}
