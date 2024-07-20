@@ -1,9 +1,9 @@
 # IAM role for eks
 
-resource "aws_iam_role" "demo" {
-  name = "eks-cluster-demo"
+resource "aws_iam_role" "datarails-demo" {
+  name = "eks-cluster-datarails-demo"
   tags = {
-    tag-key = "eks-cluster-demo"
+    tag-key = "eks-cluster-datarails-demo"
   }
 
   assume_role_policy = <<POLICY
@@ -26,16 +26,16 @@ POLICY
 
 # eks policy us-east-1b
 
-resource "aws_iam_role_policy_attachment" "demo-AmazonEKSClusterPolicy" {
-  role       = aws_iam_role.demo.name
+resource "aws_iam_role_policy_attachment" "datarails-demo-AmazonEKSClusterPolicy" {
+  role       = aws_iam_role.datarails-demo.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
 # bare minimum requirement of eks
 
-resource "aws_eks_cluster" "demo" {
-  name     = "demo"
-  role_arn = aws_iam_role.demo.arn
+resource "aws_eks_cluster" "datarails-demo" {
+  name     = var.eks_name
+  role_arn = aws_iam_role.datarails-demo.arn
 
   vpc_config {
     subnet_ids = [
@@ -46,5 +46,5 @@ resource "aws_eks_cluster" "demo" {
     ]
   }
 
-  depends_on = [aws_iam_role_policy_attachment.demo-AmazonEKSClusterPolicy]
+  depends_on = [aws_iam_role_policy_attachment.datarails-demo-AmazonEKSClusterPolicy]
 }
