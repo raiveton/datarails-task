@@ -6,11 +6,11 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "hello-world-chart.name" . }}
+      app: {{ include "hello-world-datarails-chart.name" . }}
   template:
     metadata:
       labels:
-        app: {{ include "hello-world-chart.name" . }}
+        app: {{ include "hello-world-datarails-chart.name" . }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
