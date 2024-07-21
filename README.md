@@ -30,7 +30,11 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 https://docs.aws.amazon.com/cli/latest/userguide/cli-authentication-user.html
 
-2. Install terraform:
+2. Generate kubeconfig for EKS:
+
+https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html
+
+3. Install terraform:
 
 https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 
@@ -39,7 +43,7 @@ https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 https://helm.sh/docs/intro/install/
 
 
-4. Terraform init and apply infrastructure
+5. Terraform init and apply infrastructure
 
 `cd terraform`
 
