@@ -19,3 +19,13 @@ Dockerhub link for the image:
 
 https://hub.docker.com/r/raiveton/datarails-simple-app
 
+
+#### Part 3: Working with Helm and Terraform
+
+`cd terraform`
+
+`terraform init`
+
+`terraform plan`
+
+`terraform apply`
