@@ -38,7 +38,7 @@ jobs:
       if: always()
       run: |
         echo "Pause for manual review of Terraform plan."
-        sleep 600 # Pause for 10 minutes, or adjust the time
+        sleep 30
 
     - name: Terraform Apply with Approval
       if: github.event_name == 'workflow_dispatch'
