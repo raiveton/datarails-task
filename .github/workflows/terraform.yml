@@ -7,7 +7,7 @@ on:
 
 jobs:
   terraform:
-    name: Terraform Deploy
+    name: Terraform Plan
     runs-on: ubuntu-latest
 
     steps:
@@ -33,14 +33,3 @@ jobs:
     - name: Terraform Plan
       working-directory: ./terraform
       run: terraform plan
-
-    - name: Pause for Manual Review
-      if: always()
-      run: |
-        echo "Pause for manual review of Terraform plan."
-        sleep 30
-
-    - name: Terraform Apply with Approval
-      if: github.event_name == 'workflow_dispatch'
-      working-directory: ./terraform
-      run: echo "yes" | terraform apply
