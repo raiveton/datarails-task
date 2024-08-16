@@ -30,4 +30,4 @@ jobs:
 
     - name: Terraform Apply with Approval
       working-directory: ./terraform
-      run: echo "yes" | terraform apply
+      run: terraform apply -auto-approve
