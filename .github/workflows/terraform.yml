@@ -34,7 +34,13 @@ jobs:
       working-directory: ./terraform
       run: terraform plan
 
-    - name: Terraform Apply (Requires Manual Approval)
+    - name: Pause for Manual Review
+      if: always()
+      run: |
+        echo "Pause for manual review of Terraform plan."
+        sleep 600 # Pause for 10 minutes, or adjust the time
+
+    - name: Terraform Apply with Approval
+      if: github.event_name == 'workflow_dispatch'
       working-directory: ./terraform
-      if: ${{ inputs.approve == 'true' }} # This condition checks for manual approval
-      run: terraform apply
+      run: echo "yes" | terraform apply
