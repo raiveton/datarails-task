@@ -34,15 +34,7 @@ jobs:
       working-directory: ./terraform
       run: terraform plan
 
-    - name: Terraform Apply (Manual Approval)
+    - name: Terraform Apply (Requires Manual Approval)
       working-directory: ./terraform
+      if: ${{ inputs.approve == 'true' }} # This condition checks for manual approval
       run: terraform apply
-      env:
-        TF_IN_AUTOMATION: true
-      continue-on-error: true
-
-    - name: Request Approval
-      if: failure() && github.event_name == 'push'
-      run: |
-        echo "Terraform apply failed (manual approval needed). Please approve manually."
-        exit 1
